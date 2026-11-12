@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { User, Layers, Database, ShieldCheck, Cpu, CheckCircle } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { portfolioData } from "@/data/portfolio";
+import { usePortfolioData } from "@/lib/portfolio-store";
 
 const principleIcons: Record<string, typeof Layers> = {
   Layers,
@@ -13,6 +13,7 @@ const principleIcons: Record<string, typeof Layers> = {
 };
 
 export function AboutSection() {
+  const portfolioData = usePortfolioData();
   const { about } = portfolioData;
 
   return (
@@ -116,3 +117,4 @@ export function AboutSection() {
     </section>
   );
 }
+

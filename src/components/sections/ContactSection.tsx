@@ -13,9 +13,10 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { portfolioData } from "@/data/portfolio";
+import { usePortfolioData } from "@/lib/portfolio-store";
 
 export function ContactSection() {
+  const portfolioData = usePortfolioData();
   const { profile } = portfolioData;
   const [copied, setCopied] = useState(false);
 
@@ -52,8 +53,8 @@ export function ContactSection() {
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           badge="Get in Touch"
-          title="Let’s Discuss Your Next High-Impact Project"
-          subtitle="Whether you have an enterprise backend opportunity, database optimization challenge, or contract engagement, I’m eager to connect."
+          title="Letâ€™s Discuss Your Next High-Impact Project"
+          subtitle="Whether you have an enterprise backend opportunity, database optimization challenge, or contract engagement, Iâ€™m eager to connect."
           icon={<Mail className="w-4 h-4" />}
         />
 
@@ -282,3 +283,4 @@ export function ContactSection() {
     </section>
   );
 }
+

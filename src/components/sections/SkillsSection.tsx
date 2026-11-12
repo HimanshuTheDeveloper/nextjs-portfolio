@@ -3,9 +3,10 @@
 import { Code2 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SkillGroup } from "@/components/ui/SkillGroup";
-import { portfolioData } from "@/data/portfolio";
+import { usePortfolioData } from "@/lib/portfolio-store";
 
 export function SkillsSection() {
+  const portfolioData = usePortfolioData();
   const { skillCategories } = portfolioData;
 
   return (
@@ -27,3 +28,4 @@ export function SkillsSection() {
     </section>
   );
 }
+

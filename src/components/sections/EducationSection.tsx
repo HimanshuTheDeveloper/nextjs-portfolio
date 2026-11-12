@@ -3,9 +3,10 @@
 import { GraduationCap, Award, BookOpen } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { EducationCard } from "@/components/ui/EducationCard";
-import { portfolioData } from "@/data/portfolio";
+import { usePortfolioData } from "@/lib/portfolio-store";
 
 export function EducationSection() {
+  const portfolioData = usePortfolioData();
   const { education, trainings } = portfolioData;
 
   return (
@@ -66,3 +67,4 @@ export function EducationSection() {
     </section>
   );
 }
+

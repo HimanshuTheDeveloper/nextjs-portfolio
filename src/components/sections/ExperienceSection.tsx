@@ -3,9 +3,10 @@
 import { Briefcase } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ExperienceCard } from "@/components/ui/ExperienceCard";
-import { portfolioData } from "@/data/portfolio";
+import { usePortfolioData } from "@/lib/portfolio-store";
 
 export function ExperienceSection() {
+  const portfolioData = usePortfolioData();
   const { experience } = portfolioData;
 
   return (
@@ -27,3 +28,4 @@ export function ExperienceSection() {
     </section>
   );
 }
+

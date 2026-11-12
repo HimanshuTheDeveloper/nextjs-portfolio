@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { portfolioData } from "@/data/portfolio";
-import { ScrollProgress } from "@/components/ui/ScrollProgress";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import { PortfolioChrome } from "@/components/PortfolioChrome";
+import { PortfolioFooter } from "@/components/PortfolioFooter";
+import { PortfolioProvider } from "@/components/PortfolioProvider";
 
 export const viewport: Viewport = {
   themeColor: "#090d16",
@@ -92,10 +92,11 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
-        <ScrollProgress />
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <PortfolioProvider>
+          <PortfolioChrome />
+          <main className="flex-1">{children}</main>
+          <PortfolioFooter />
+        </PortfolioProvider>
       </body>
     </html>
   );

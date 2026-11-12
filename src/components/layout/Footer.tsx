@@ -1,9 +1,10 @@
 "use client";
 
 import { ArrowUp, Heart, Terminal, Linkedin, Mail, Github, Phone } from "lucide-react";
-import { portfolioData } from "@/data/portfolio";
+import { usePortfolioData } from "@/lib/portfolio-store";
 
 export function Footer() {
+  const portfolioData = usePortfolioData();
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = () => {
@@ -23,7 +24,7 @@ export function Footer() {
               {portfolioData.profile.name}
             </div>
             <div className="text-xs text-slate-400">
-              {portfolioData.profile.title} • {portfolioData.profile.location}
+              {portfolioData.profile.title} â€¢ {portfolioData.profile.location}
             </div>
           </div>
         </div>
@@ -71,7 +72,7 @@ export function Footer() {
         {/* Right: Copyright & Back-to-Top */}
         <div className="flex items-center gap-4">
           <span className="text-xs text-slate-500">
-            © {currentYear} {portfolioData.profile.name}. All rights reserved.
+            Â© {currentYear} {portfolioData.profile.name}. All rights reserved.
           </span>
           <button
             onClick={scrollToTop}
@@ -86,3 +87,4 @@ export function Footer() {
     </footer>
   );
 }
+

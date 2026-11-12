@@ -12,9 +12,10 @@ import {
   Server,
   Code2,
 } from "lucide-react";
-import { portfolioData } from "@/data/portfolio";
+import { usePortfolioData } from "@/lib/portfolio-store";
 
 export function HeroSection() {
+  const portfolioData = usePortfolioData();
   const { profile } = portfolioData;
 
   return (
@@ -47,7 +48,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white dark:text-white light:text-slate-900 leading-[1.08]"
           >
-            Hi, I’m{" "}
+            Hi, Iâ€™m{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300">
               {profile.name}
             </span>
@@ -242,7 +243,7 @@ export function HeroSection() {
             <div className="px-4 py-2.5 bg-slate-900/90 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
               <span className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                <span>PHP 8.2 • Laravel 10 • MySQL 8</span>
+                <span>PHP 8.2 â€¢ Laravel 10 â€¢ MySQL 8</span>
               </span>
               <span className="text-blue-400 font-semibold">Ready to deploy</span>
             </div>
@@ -252,3 +253,4 @@ export function HeroSection() {
     </section>
   );
 }
+

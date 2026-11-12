@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Layers, FolderGit2 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProjectCard } from "@/components/ui/ProjectCard";
-import { portfolioData } from "@/data/portfolio";
+import { usePortfolioData } from "@/lib/portfolio-store";
 import { ProjectCategory } from "@/types/portfolio";
 
 const categories: ProjectCategory[] = [
@@ -16,6 +16,7 @@ const categories: ProjectCategory[] = [
 ];
 
 export function ProjectsSection() {
+  const portfolioData = usePortfolioData();
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>("All");
   const { projects } = portfolioData;
 
@@ -84,3 +85,4 @@ export function ProjectsSection() {
     </section>
   );
 }
+

@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, FileDown, Linkedin, Terminal } from "lucide-react";
-import { portfolioData } from "@/data/portfolio";
+import { usePortfolioData } from "@/lib/portfolio-store";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Navbar() {
+  const portfolioData = usePortfolioData();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -35,7 +36,7 @@ export function Navbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [portfolioData.navigation]);
 
   const handleLinkClick = () => {
     setIsOpen(false);
@@ -179,3 +180,4 @@ export function Navbar() {
     </header>
   );
 }
+
